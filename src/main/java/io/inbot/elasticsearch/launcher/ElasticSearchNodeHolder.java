@@ -17,7 +17,7 @@ public class ElasticSearchNodeHolder {
 
     /**
      * Creates a new node holder based on the elasticsearch settings provided.
-     *
+     * 
      * @param settings
      *            this will determine how the node behaves
      * @param addShutDownHook
@@ -29,7 +29,7 @@ public class ElasticSearchNodeHolder {
     }
 
     public Node node() {
-        if(elasticSearchNode==null) {
+        if(elasticSearchNode == null) {
             throw new IllegalStateException("node has not been started yet");
         }
         return elasticSearchNode;
@@ -37,7 +37,7 @@ public class ElasticSearchNodeHolder {
 
     /**
      * Use this method to fire up a test node with some sensible defaults.
-     *
+     * 
      * @param indexDirectory
      *            place where it should store its index and log files. Tip: put this in target and randomize the index
      *            dir name. This way it gets cleaned up when you run mvn clean and you get a clean index everytime you

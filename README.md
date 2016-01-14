@@ -2,6 +2,34 @@
 
 Simple Java class to simplify getting an embedded Elasticsearch node running in tests.
 
+While starting elasticsearch is easy programmatically, there are a few gotchas. This project addresses this by providing a convenient wrapper to manage the elasticsearch lifecycle with some sane defaults.
+- creates the index directory if it does not exist
+- start method waits for elasticsearch green status
+- create `ElasticSearchNodeHolder` with your own settings object or with our *sane* defaults that you probably did not think about.
+- simply choose where to store your index, what port to run on and whether or not you want the jvm to have a shutdown hook and start elasticsearch.
+
+# Maven
+
+```
+<dependency>
+  <groupId>io.inbot</groupId>
+  <artifactId>inbot-es-launcher</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+
+# Usage
+
+```
+ElasticSearchNodeHolder nodeholder = ElasticSearchNodeHolder.createWithDefaults("myindexdir", 9299, false);
+nodeholder.start();
+
+assertThat(nodeholder.node().client().admin().cluster().prepareHealth().get().getStatus()).as("es should be green immediately after start() returns").isEqualTo(ClusterHealthStatus.GREEN);
+
+```
+
+Just do this before your tests run, in your Spring configuration, or wherever you initialize your system or tests and you will be able to control the elasticsearch lifecycle easily.
+
 # License
 
 See [LICENSE](LICENSE).
