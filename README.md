@@ -1,6 +1,6 @@
 # Introduction
 
-Simple Java class to simplify getting an embedded Elasticsearch node running in tests.
+Simple Java class to simplify getting an embedded Elasticsearch node running in tests. Also see [inbot-es-http-client](https://github.com/Inbot/inbot-es-http-client), for which this project is a test dependency.
 
 While starting elasticsearch is easy programmatically, there are a few gotchas. This project addresses this by providing a convenient wrapper to manage the elasticsearch lifecycle with some sane defaults.
 - creates the index directory if it does not exist
@@ -26,9 +26,16 @@ nodeholder.start();
 
 assertThat(nodeholder.node().client().admin().cluster().prepareHealth().get().getStatus()).as("es should be green immediately after start() returns").isEqualTo(ClusterHealthStatus.GREEN);
 
+....
+
+// when you are done
+nodeholder.close()
+
 ```
 
 Just do this before your tests run, in your Spring configuration, or wherever you initialize your system or tests and you will be able to control the elasticsearch lifecycle easily.
+
+See [inbot-es-http-client](https://github.com/Inbot/inbot-es-http-client) for some example use with TestNG.
 
 # License
 
