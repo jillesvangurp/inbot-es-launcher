@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Inbot/inbot-es-launcher.svg?branch=master)](https://travis-ci.org/Inbot/inbot-es-launcher)
+
 # Introduction
 
 Simple Java class to simplify getting an embedded Elasticsearch node running in tests. Also see [inbot-es-http-client](https://github.com/Inbot/inbot-es-http-client), for which this project is a test dependency.
