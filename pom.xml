@@ -25,7 +25,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.inbot</groupId>
     <artifactId>inbot-es-launcher</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
 
     <name>Elsaticsearch Launcher</name>
     <description>Utility class intended for use in tests that launches an embedded Elasticsearch node</description>
