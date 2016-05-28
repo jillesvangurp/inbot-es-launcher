@@ -55,26 +55,26 @@ public class ElasticSearchNodeHolder {
         file.mkdirs();
 
         Settings settings = Settings.settingsBuilder()
-                .put("path.home", indexDirectory)
-                .put("name", "test-node-" + RandomStringUtils.randomAlphabetic(5))
-                .put("cluster.name", "test-cluster-" + RandomStringUtils.randomAlphabetic(5))
-                .put("index.gateway.type", "none")
-                .put("discovery.zen.ping.multicast.ping.enabled", "false")
-                .put("discovery.zen.ping.multicast.enabled", "false")
-                .put("cluster.routing.allocation.node_concurrent_recoveries", "8")
-                .put("bootstrap.mlockall", "true")
-                .put("indices.fielddata.cache.size", "30%")
-                .put("index.number_of_replicas", 0)
-                .put("path.data", indexDirectory)
-                .put("path.logs", logDir)
-                .put("foreground", "true")
-                .put("http.port", port)
-                .put("http.cors.enabled", "true")
-                .put("script.inline", "on")
-                .put("http.cors.allow-origin", "/https?:\\/\\/(localhost|kibana.*)(:[0-9]+)?/")
-                .put("cluster.routing.allocation.disk.watermark.high", "1000mb") // nice to have a bit higher in
-                                                                                 // production :-)
-                .put("cluster.routing.allocation.disk.watermark.low", "100mb").build();
+            .put("path.home", indexDirectory)
+            .put("name", "test-node-" + RandomStringUtils.randomAlphabetic(5))
+            .put("cluster.name", "test-cluster-" + RandomStringUtils.randomAlphabetic(5))
+            .put("index.gateway.type", "none")
+            .put("discovery.zen.ping.multicast.ping.enabled", "false")
+            .put("discovery.zen.ping.multicast.enabled", "false")
+            .put("cluster.routing.allocation.node_concurrent_recoveries", "8")
+            .put("bootstrap.mlockall", "true")
+            .put("indices.fielddata.cache.size", "30%")
+            .put("index.number_of_replicas", 0)
+            .put("path.data", indexDirectory)
+            .put("path.logs", logDir)
+            .put("foreground", "true")
+            .put("http.port", port)
+            .put("http.cors.enabled", "true")
+            .put("script.inline", "on")
+            .put("http.cors.allow-origin", "/https?:\\/\\/(localhost|kibana.*)(:[0-9]+)?/")
+            .put("cluster.routing.allocation.disk.watermark.high", "1000mb") // nice to have a bit higher in
+                                                                             // production :-)
+            .put("cluster.routing.allocation.disk.watermark.low", "100mb").build();
         return new ElasticSearchNodeHolder(settings, addShutDownHook);
     }
 
