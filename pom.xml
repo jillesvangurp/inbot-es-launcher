@@ -214,6 +214,9 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
+                        <configuration>
+                            <gpg-agent>false</gpg-agent>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
