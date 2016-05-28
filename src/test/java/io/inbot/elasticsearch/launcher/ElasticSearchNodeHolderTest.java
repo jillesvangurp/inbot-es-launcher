@@ -3,7 +3,7 @@ package io.inbot.elasticsearch.launcher;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.apache.commons.lang3.RandomUtils;
-import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
+import org.elasticsearch.cluster.health.ClusterHealthStatus;
 import org.testng.annotations.Test;
 
 @Test
