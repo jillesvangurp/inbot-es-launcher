@@ -94,6 +94,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
+	<prerequisites>
+		<maven>3.0.4</maven>
+	</prerequisites>
+
     <build>
         <plugins>
             <plugin>
@@ -229,19 +233,24 @@
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
-            <version>2.1.1</version>
+            <version>2.3.3</version>
             <!-- 
                 Optional because we don't want to impose which version of es you run.
                 Requires > 2.x because internals changed slightly when 2.0 happened.
              -->
             <optional>true</optional> 
-        </dependency>        
-        
-    
+        </dependency>
+		<dependency>
+		    <!-- without this JNA won't work in es, which is not fatal but produces annoying stack traces. https://github.com/elastic/elasticsearch/issues/13245 -->
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>4.2.2</version>
+            <optional>true</optional> 
+		</dependency>       
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.9.6</version>
+            <version>6.9.10</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -264,12 +273,12 @@
         <dependency>
         	<groupId>com.fasterxml.jackson.core</groupId>
         	<artifactId>jackson-core</artifactId>
-        	<version>2.6.1</version>
+        	<version>2.7.4</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.1.0</version>
+            <version>3.4.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
