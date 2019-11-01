@@ -10,6 +10,11 @@ While starting elasticsearch is easy programmatically, there are a few gotchas. 
 - create `ElasticSearchNodeHolder` with your own settings object or with our *sane* defaults that you probably did not think about.
 - simply choose where to store your index, what port to run on and whether or not you want the jvm to have a shutdown hook and start elasticsearch.
 
+
+# Repository move to jillesvangurp
+
+Inbot the company for which I developed this library originally is no more. So, I forked the repository and put it under my own account. I will likely change the name at some point. Any future releases will be done from here.
+
 # Maven
 
 ```
