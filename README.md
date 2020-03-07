@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/Inbot/inbot-es-launcher.svg?branch=master)](https://travis-ci.org/Inbot/inbot-es-launcher)
+# OBSOLETE
+
+Use my [kotlin wrapper for the official client](https://github.com/jillesvangurp/es-kotlin-wrapper-client)
 
 # Introduction
 
